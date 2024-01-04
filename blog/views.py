@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from blog.models import Post
 def blog_view(request):
-    return render(request, 'blog/blog-home.html')
+    posts = Post.objects.filter(status=0)
+    return render(request, 'blog/blog-home.html', context={'posts': posts})
 
 def blog_single(request):
     context = {'title': 'bitcoin crashed again!', 'content': 'bitcoin was flying...'}
