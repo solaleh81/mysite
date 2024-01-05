@@ -13,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField(null=True)
     #tag
-    category =  models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category)
     counted_views = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
     published_date = models.DateTimeField(null=True)
@@ -27,3 +27,5 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} - {self.id}"
 
+    def snippets(self):
+        return f"{self.content[:100]}..."
