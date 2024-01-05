@@ -12,3 +12,8 @@ def blog_single(request, id):
 def test(request):
     posts = Post.objects.filter(status=0)
     return render(request, 'test.html', context={'posts': posts})
+
+def blog_category(request, cat_name):
+    posts = Post.objects.filter(status=0)
+    posts = posts.filter(category__name=cat_name)
+    return render(request, 'blog/blog-home.html', context={'posts': posts})
