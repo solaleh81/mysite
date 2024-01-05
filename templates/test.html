@@ -1,18 +1,15 @@
-<!DOCTYPE html>
+{% load blog_tags %}
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
 </head>
 <body>
+
+<h1>Testing Page</h1>
+<p>test: {% posts as totalposts %}</p>
 {% for post in posts %}
-
-<h1>{{post.title}}</h1>
-<p>{{post.content}}</p>
-{% if post.published_date%}
-<small>{{post.published_date}}</small>
-{% endif %}
-
+<p>{{ post }}</p>
 {% endfor %}
 </body>
 </html>
