@@ -1,14 +1,26 @@
 {% load blog_tags %}
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Form</title>
 </head>
 <body>
 
-<h1>Testing Page</h1>
-<p>test: </p>
-{% latestposts %}
+<form method="post" action="{% url 'website:test' %}">
+    {% csrf_token %}
+    <label>نام</label>
+    <input name="name"></br>
+    </br>
+    <label>ایمیل</label>
+    <input name="email"></br>
+    </br>
+    <label>موضوع</label>
+    <input name="subject"></br>
+    </br>
+    <label>پیام</label>
+    <input name="message"></br>
+    <button type="submit">submit</button>
+</form>
 
 </body>
 </html>
