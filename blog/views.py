@@ -1,8 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from blog.models import Post
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
-
+@login_required
 def blog_view(request, **kwargs):
     posts = Post.objects.all()
     if kwargs.get('cat_name') != None:
